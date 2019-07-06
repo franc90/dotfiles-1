@@ -1,0 +1,35 @@
+# ls
+alias ls='ls -FG'
+alias l='ls -FlhG'
+alias ll='ls -FlhaG'
+
+# grep
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# interactive
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+# verbose
+alias mkdir='mkdir -v'
+alias rmdir='rmdir -v'
+
+# git
+alias gs='git status'
+alias gd='git diff'
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git ls-tree -r master --name-only'
+
+# dotfiles
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dfs='dotfiles status'
+alias dfd='dotfiles diff'
+alias dfa='dotfiles add'
+alias dfc='dotfiles commit'
+alias dfp='dotfiles push'
+alias dfl='dotfiles ls-tree -r master --name-only'
