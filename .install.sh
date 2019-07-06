@@ -29,7 +29,7 @@ install_dotfiles() {
 
 install_packages() {
     # packages
-    brew install fzf
+    brew install fzf tree
 
     # font
     brew tap homebrew/cask-fonts
