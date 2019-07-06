@@ -18,10 +18,12 @@ install_dotfiles() {
             dotfiles checkout
             dotfiles config status.showUntrackedFiles no
         else
-                rm -rf $GITDIR
-                echo "Installation cancelled"
-                exit 1
+            rm -rf $GITDIR
+            echo "Installation cancelled"
+            exit 1
         fi
+    else
+        dotfiles config status.showUntrackedFiles no
     fi
 }
 
