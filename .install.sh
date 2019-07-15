@@ -34,9 +34,6 @@ install_packages() {
     # font
     brew tap homebrew/cask-fonts
     brew cask install font-sourcecodepro-nerd-font-mono
-
-    # vim-plug
-    curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
 
 install_dotfiles
