@@ -35,10 +35,6 @@ install_packages() {
     brew tap homebrew/cask-fonts
     brew cask install font-sourcecodepro-nerd-font-mono
 
-    # zsh plugins
-    git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting $HOME/.zsh/zsh-syntax-highlighting
-
     # vim-plug
     curl -fLo $HOME/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 }
