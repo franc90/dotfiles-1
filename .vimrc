@@ -58,12 +58,6 @@ map Q gq
 " Save as root
 cmap W w !sudo /usr/bin/tee > /dev/null %
 
-" Simple split navigation
-nnoremap <silent> <C-h> :wincmd h<CR>
-nnoremap <silent> <C-j> :wincmd j<CR>
-nnoremap <silent> <C-k> :wincmd k<CR>
-nnoremap <silent> <C-l> :wincmd l<CR>
-
 "+---------+
 "| PLUGINS |
 "+---------+
