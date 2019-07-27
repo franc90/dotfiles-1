@@ -56,9 +56,9 @@ zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 
 # Plugins
 source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh \
-    || git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions $HOME/.zsh/zsh-autosuggestions
+    || git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions.git $HOME/.zsh/zsh-autosuggestions
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
-    || git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting $HOME/.zsh/zsh-syntax-highlighting
+    || git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.zsh/zsh-syntax-highlighting
 source $HOME/.zsh/fzf/shell/completion.zsh && source $HOME/.zsh/fzf/shell/key-bindings.zsh \
     || (git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.zsh/fzf && $HOME/.zsh/fzf/install --bin)
 
