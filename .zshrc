@@ -1,21 +1,24 @@
 # Prompt theme
+setopt prompt_subst
+autoload -U colors && colors
+
 PROMPT=$'%
-%{\e[30;44m%} %m %{\e[0m%}%
-%{\e[34;42m%}%{\e[0m%}%
-%{\e[30;42m%} %n %{\e[0m%}%
-%{\e[32;43m%}%{\e[0m%}%
-%{\e[30;43m%} %1~ %{\e[0m%}%
-%{\e[33;49m%} %{\e[0m%}%
+%{$fg[black]$bg[blue]%} %m %{$reset_color%}%
+%{$fg[blue]$bg[green]%}%{$reset_color%}%
+%{$fg[black]$bg[green]%} %n %{$reset_color%}%
+%{$fg[green]$bg[yellow]%}%{$reset_color%}%
+%{$fg[black]$bg[yellow]%} %1~ %{$reset_color%}%
+%{$fg[yellow]$bg[black]%} %{$reset_color%}%
 '
 RPROMPT=$'%
 %(?.%
-%{\e[36;49m%}%{\e[0m%}%
+%{$fg[cyan]$bg[background]%}%{$reset_color%}%
 .%
-%{\e[31;49m%}%{\e[0m%}%
-%{\e[30;41m%} %? %{\e[0m%}%
-%{\e[36;41m%}%{\e[0m%}%
+%{$fg[red]$bg[black]%}%{$reset_color%}%
+%{$fg[black]$bg[red]%} %? %{$reset_color%}%
+%{$fg[cyan]$bg[red]%}%{$reset_color%}%
 )%
-%{\e[30;46m%} %T %{\e[0m%}%
+%{$fg[black]$bg[cyan]%} %T %{$reset_color%}%
 '
 
 # Key bindings
