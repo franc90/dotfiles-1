@@ -71,4 +71,5 @@ endif
 " Plugins list
 call plug#begin('~/.vim/plugged')
 Plug 'itchyny/lightline.vim'
+Plug 'justinmk/vim-sneak'
 call plug#end()
