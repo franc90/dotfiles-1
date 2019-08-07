@@ -33,3 +33,7 @@ alias dfa='dotfiles add'
 alias dfc='dotfiles commit'
 alias dfp='dotfiles push'
 alias dfl='dotfiles ls-tree -r macos --name-only'
+
+# tmux
+alias t='tmux'
+alias ta='tmux attach'
