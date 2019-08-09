@@ -38,11 +38,11 @@ zle -N zle-keymap-select
 # History
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.zsh_history
+HISTFILE=$HOME/.zsh_history
 setopt histignorealldups sharehistory
 
 # Aliases
-source ~/.aliases
+source $HOME/.aliases
 
 # Options
 setopt autocd autopushd
