@@ -34,6 +34,9 @@ alias dfc='dotfiles commit'
 alias dfp='dotfiles push'
 alias dfl='dotfiles ls-tree -r macos --name-only'
 
+# aria2c
+alias dl='aria2c -x 16'
+
 # tmux
 alias t='tmux'
 alias ta='tmux attach'
