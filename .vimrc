@@ -74,7 +74,8 @@ endif
 
 " Plugins list
 call plug#begin('~/.vim/plugged')
+Plug 'bling/vim-bufferline'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
 Plug 'justinmk/vim-sneak'
-Plug 'bling/vim-bufferline'
 call plug#end()
