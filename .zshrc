@@ -61,9 +61,7 @@ source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh \
     || git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions.git $HOME/.zsh/zsh-autosuggestions
 source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh \
     || git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.zsh/zsh-syntax-highlighting
-source $HOME/.zsh/fzf/shell/completion.zsh && source $HOME/.zsh/fzf/shell/key-bindings.zsh \
-    || (git clone --depth 1 https://github.com/junegunn/fzf.git $HOME/.zsh/fzf && $HOME/.zsh/fzf/install --bin)
+source /usr/local/opt/fzf/shell/key-bindings.zsh
 
 # fzf settings
-export PATH="${PATH:+${PATH}:}$HOME/.zsh/fzf/bin" 
 export FZF_CTRL_T_COMMAND='find .'

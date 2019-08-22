@@ -29,7 +29,7 @@ install_dotfiles() {
 
 install_packages() {
     # packages
-    brew install tree vim
+    brew install fzf tree vim
 
     # font
     brew tap homebrew/cask-fonts
