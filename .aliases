@@ -18,7 +18,7 @@ alias mkdir='mkdir -v'
 alias rmdir='rmdir -v'
 
 # git
-alias gs='git status'
+alias gs='git status --short'
 alias gd='git diff'
 alias ga='git add'
 alias gc='git commit'
@@ -27,7 +27,7 @@ alias gl='git ls-tree -r master --name-only'
 
 # dotfiles
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-alias dfs='dotfiles status'
+alias dfs='dotfiles status --short'
 alias dfd='dotfiles diff'
 alias dfa='dotfiles add'
 alias dfc='dotfiles commit'
