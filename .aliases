@@ -1,13 +1,7 @@
 # ls
-if [ "$OS" = "Linux" ]; then
-    alias ls='ls -F --color=auto'
-    alias l='ls -Flh --color=auto'
-    alias ll='ls -Flha --color=auto'
-elif [ "$OS" = "Darwin" ]; then
-    alias ls='ls -FG'
-    alias l='ls -FlhG'
-    alias ll='ls -FlhaG'
-fi
+alias ls='ls -F --color=auto'
+alias l='ls -Flh --color=auto'
+alias ll='ls -Flha --color=auto'
 
 # grep
 alias grep='grep --color=auto'
@@ -33,23 +27,21 @@ alias gl='git ls-tree -r master --name-only'
 
 # dotfiles
 if [ -d "$HOME/.dotfiles" ] && [ ! -d "$HOME/.dotfiles/.git" ]; then
-    alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
-    alias dfs='dotfiles status --short'
-    alias dfd='dotfiles diff'
-    alias dfa='dotfiles add'
-    alias dfc='dotfiles commit'
-    alias dfp='dotfiles push'
-    alias dfl='dotfiles ls-tree -r master --name-only'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'
+alias dfs='dotfiles status --short'
+alias dfd='dotfiles diff'
+alias dfa='dotfiles add'
+alias dfc='dotfiles commit'
+alias dfp='dotfiles push'
+alias dfl='dotfiles ls-tree -r master --name-only'
 fi
 
 # aria2
 alias dl='aria2c -x 16 -s 16'
 
 # battery
-if [ "$OS" = "Linux" ]; then
-    alias W='bc -l <<< "$(cat /sys/class/power_supply/BAT0/voltage_now)*$(cat /sys/class/power_supply/BAT0/current_now)/10^12" | cut -b -4'
-    alias up='uptime -p'
-fi
+alias W='bc -l <<< "$(cat /sys/class/power_supply/BAT0/voltage_now)*$(cat /sys/class/power_supply/BAT0/current_now)/10^12" | cut -b -4'
+alias up='uptime -p'
 
 # feh
 alias feh='feh --scale-down --auto-zoom'
