@@ -73,14 +73,6 @@ install_core_packages() {
 
     # gnome-terminal theme
     bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
-
-    # dmenu
-    git clone https://github.com/khuedoan98/dmenu
-    cd dmenu
-    git checkout gnome
-    sudo make clean install && sudo make clean
-    cd ..
-    rm -rf dmenu
 }
 
 install_extra_packages() {
