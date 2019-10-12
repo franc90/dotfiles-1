@@ -33,7 +33,7 @@ alias dfd='dotfiles diff'
 alias dfa='dotfiles add'
 alias dfc='dotfiles commit'
 alias dfp='dotfiles push'
-alias dfl='dotfiles ls-tree -r master --name-only'
+alias dfl='dotfiles ls-tree -r gnome --name-only'
 fi
 
 # aria2
