@@ -1,8 +1,6 @@
 #!/bin/bash
 
-OS=$(uname -s)
-
-if [ "$1" = "cli" ] || [ "$OS" = "Darwin" ]; then
+if [ "$1" = "cli" ]; then
     cli_config_files=".aliases .hushlogin .tmux.conf .vimrc .zshenv .zshrc"
 
     for file in $cli_config_files; do
@@ -11,9 +9,6 @@ if [ "$1" = "cli" ] || [ "$OS" = "Darwin" ]; then
 
     exit 0
 fi
-
-# Ask for sudo password up front
-sudo -v
 
 # Update existing sudo time stamp if the script is still running
 while true; do
@@ -38,7 +33,7 @@ install_dotfiles() {
     REPO="https://github.com/khuedoan98/dotfiles.git"
     GITDIR=$HOME/.dotfiles/
 
-    git clone --bare $REPO $GITDIR
+    git clone --branch gnome --bare $REPO $GITDIR
 
     dotfiles() {
         /usr/bin/git --git-dir=$GITDIR --work-tree=$HOME $@
@@ -70,49 +65,28 @@ install_aur_helper() {
 }
 
 install_core_packages() {
-    sudo pacman --noconfirm --needed -S alsa-utils bc bspwm dunst feh fzf git libnotify maim playerctl sxhkd translate-shell ttf-dejavu wmctrl xautolock xcape xclip xdotool xorg-server xorg-setxkbmap xorg-xbacklight xorg-xinit xorg-xsetroot
-    trizen --noconfirm --needed -S nerd-fonts-source-code-pro polybar ttf-mac-fonts
+    sudo pacman --noconfirm --needed -S eog evince file-roller fzf gdm git gnome-calculator gnome-keyring gnome-shell gnome-shell-extensions gnome-system-monitor gnome-terminal gnome-tweaks gvim mpv sushi xcape
 
     # zsh plugins
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
 
-    # compton
-    sudo pacman --noconfirm --needed -S asciidoc libconfig
-    git clone https://github.com/tryone144/compton.git
-    cd compton
-    make PREFIX=/usr/local
-    make docs
-    sudo make PREFIX=/usr/local install
-    cd ..
-    rm -rf compton
-
-    # st
-    git clone https://github.com/khuedoan98/st
-    cd st
-    sudo make clean install && sudo make clean
-    cd ..
-    rm -rf st
+    # gnome-terminal theme
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
 
     # dmenu
     git clone https://github.com/khuedoan98/dmenu
     cd dmenu
+    git checkout gnome
     sudo make clean install && sudo make clean
     cd ..
     rm -rf dmenu
-
-    # slock
-    git clone https://github.com/khuedoan98/slock
-    cd slock
-    sudo make clean install && sudo make clean
-    cd ..
-    rm -rf slock
 }
 
 install_extra_packages() {
-    sudo pacman --noconfirm --needed -S arc-gtk-theme aria2 glances htop lxappearance mpv noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra papirus-icon-theme pcmanfm ranger unrar unzip w3m xarchiver youtube-dl zathura zathura-pdf-mupdf zip
+    sudo pacman --noconfirm --needed -S arc-gtk-theme aria2 tmux translate-shell tree unrar youtube-dl
     gpg --recv-keys EB4F9E5A60D32232BB52150C12C87A28FEAC6B20
-    trizen --noconfirm --needed -S chromium-vaapi-bin ttf-ms-fonts
+    trizen --noconfirm --needed -S chromium-vaapi-bin la-capitaine-icon-theme-git ttf-ms-fonts
 }
 
 install_intel_graphics() {
@@ -129,11 +103,10 @@ install_bumblebee() {
 }
 
 install_unikey() {
-    sudo pacman --noconfirm --needed -S fcitx fcitx-unikey fcitx-im fcitx-configtool
+    sudo pacman --noconfirm --needed -S ibus-unikey
 }
 
 install_system_config() {
-    sed -i "s/khuedoan/$USER/g" .root/etc/systemd/system/getty@tty1.service.d/override.conf
     sudo cp -riv .root/* /
 }
 
