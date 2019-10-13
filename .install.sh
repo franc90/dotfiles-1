@@ -22,6 +22,7 @@ install_list=( $(whiptail --notags --title "Dotfiles" --checklist "Install list"
     install_aur_helper "AUR helper (trizen)" on \
     install_core_packages "Recommended packages" on \
     install_extra_packages "Extra packages" on \
+    install_onedark_terminal_theme "One Dark terminal theme" off \
     install_intel_graphics "Intel graphics driver" on \
     install_bumblebee "Bumblebee for NVIDIA Optimus" on \
     install_unikey "Unikey" on \
@@ -65,20 +66,24 @@ install_aur_helper() {
 }
 
 install_core_packages() {
-    sudo pacman --noconfirm --needed -S eog evince file-roller fzf gdm git gnome-calculator gnome-keyring gnome-shell gnome-shell-extensions gnome-system-monitor gnome-terminal gnome-tweaks gvim mpv sushi xcape
+    sudo pacman --noconfirm --needed -S eog evince file-roller fzf gdm git gnome-calculator gnome-control-center gnome-keyring gnome-shell gnome-shell-extensions gnome-system-monitor gnome-terminal gnome-tweaks gvim mpv nautilus sushi xcape xdg-user-dirs-gtk
 
     # zsh plugins
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
 
-    # gnome-terminal theme
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
+    # enable gdm at boot
+    systemctl enable gdm
 }
 
 install_extra_packages() {
-    sudo pacman --noconfirm --needed -S arc-gtk-theme aria2 tmux translate-shell tree unrar youtube-dl
+    sudo pacman --noconfirm --needed -S aria2 code tmux translate-shell tree unrar youtube-dl
     gpg --recv-keys EB4F9E5A60D32232BB52150C12C87A28FEAC6B20
-    trizen --noconfirm --needed -S chromium-vaapi-bin la-capitaine-icon-theme-git ttf-ms-fonts
+    trizen --noconfirm --needed -S chromium-vaapi-bin ttf-ms-fonts
+}
+
+install_onedark_terminal_theme() {
+    bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
 }
 
 install_intel_graphics() {
