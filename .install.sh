@@ -105,6 +105,7 @@ install_unikey() {
 
 install_system_config() {
     sudo cp -riv .root/* /
+    for i in {1..9}; do gsettings set "org.gnome.shell.keybindings" "switch-to-application-$i" "[]"; done
 }
 
 install_battery_saver() {
