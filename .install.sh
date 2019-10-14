@@ -66,7 +66,7 @@ install_aur_helper() {
 }
 
 install_core_packages() {
-    sudo pacman --noconfirm --needed -S eog evince file-roller fzf gdm git gnome-calculator gnome-control-center gnome-keyring gnome-shell gnome-shell-extensions gnome-system-monitor gnome-terminal gnome-tweaks gvim mpv nautilus sushi xcape xdg-user-dirs-gtk
+    sudo pacman --noconfirm --needed -S bc eog evince file-roller fzf gdm git gnome-calculator gnome-control-center gnome-keyring gnome-shell gnome-shell-extensions gnome-system-monitor gnome-terminal gnome-tweaks gvim mpv nautilus sushi xcape xdg-user-dirs-gtk
 
     # zsh plugins
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
