@@ -106,6 +106,7 @@ install_unikey() {
 install_system_config() {
     sudo cp -riv .root/* /
     for i in {1..9}; do gsettings set "org.gnome.shell.keybindings" "switch-to-application-$i" "[]"; done
+    gsettings set org.gnome.shell.app-switcher current-workspace-only true
 }
 
 install_battery_saver() {
