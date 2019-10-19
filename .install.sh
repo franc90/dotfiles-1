@@ -79,7 +79,7 @@ install_core_packages() {
 install_extra_packages() {
     sudo pacman --noconfirm --needed -S aria2 code man noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra tmux translate-shell tree unrar youtube-dl
     gpg --recv-keys EB4F9E5A60D32232BB52150C12C87A28FEAC6B20
-    trizen --noconfirm --needed -S chromium-vaapi-bin ttf-ms-fonts
+    trizen --noconfirm --needed -S --sudo-autorepeat-at-runtime chromium-vaapi-bin ttf-ms-fonts
 }
 
 install_onedark_terminal_theme() {
@@ -111,7 +111,7 @@ install_system_config() {
 
 install_battery_saver() {
     sudo pacman --noconfirm --needed -S tlp powertop
-    trizen --noconfirm --needed -S intel-undervolt
+    trizen --noconfirm --needed -S --sudo-autorepeat-at-runtime intel-undervolt
     sudo systemctl enable tlp.service
     sudo systemctl enable tlp-sleep.service
     sudo intel-undervolt apply
