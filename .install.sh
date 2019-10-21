@@ -101,6 +101,7 @@ install_bumblebee() {
 
 install_unikey() {
     sudo pacman --noconfirm --needed -S ibus-unikey
+    gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Unikey')]"
 }
 
 install_system_config() {
