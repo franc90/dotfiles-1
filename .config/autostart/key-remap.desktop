@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Key Remap
-Exec=sh -c "setxkbmap -option ctrl:nocaps,shift:both_capslock,altwin:swap_lalt_lwin,lv3:ralt_switch && xcape"
+Exec=sh -c "setxkbmap -option ctrl:nocaps,shift:both_capslock,lv3:ralt_switch && xcape"
 Terminal=false
 Type=Application
 StartupNotify=false
