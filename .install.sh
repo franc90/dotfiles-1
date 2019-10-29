@@ -28,6 +28,7 @@ install_list=( $(whiptail --notags --title "Dotfiles" --checklist "Install list"
     install_unikey "Unikey" on \
     install_system_config "System config files" on \
     install_battery_saver "Install battery saver for laptop" on \
+    create_ssh_key "Create SSH key for GitHub" on \
     3>&1 1>&2 2>&3 | sed 's/"//g') )
 
 install_dotfiles() {
@@ -116,6 +117,13 @@ install_battery_saver() {
     sudo systemctl enable tlp-sleep.service
     sudo intel-undervolt apply
     sudo systemctl enable intel-undervolt.service
+}
+
+create_ssh_key() {
+    email=$(whiptail --inputbox "Enter email for SSH key" 10 20 3>&1 1>&2 2>&3)
+    ssh-keygen -t rsa -b 4096 -C "${email}"
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa
 }
 
 for install_function in "${install_list[@]}"; do
