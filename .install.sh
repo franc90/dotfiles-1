@@ -78,9 +78,9 @@ install_core_packages() {
 }
 
 install_extra_packages() {
-    sudo pacman --noconfirm --needed -S aria2 code man noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra tmux translate-shell tree unrar youtube-dl
+    sudo pacman --noconfirm --needed -S arc-gtk-theme aria2 code man noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra tmux translate-shell tree unrar youtube-dl xorg-xprop
     gpg --recv-keys EB4F9E5A60D32232BB52150C12C87A28FEAC6B20
-    trizen --noconfirm --needed -S --sudo-autorepeat-at-runtime chromium-vaapi-bin ttf-ms-fonts
+    trizen --noconfirm --needed -S --sudo-autorepeat-at-runtime chromium-vaapi-bin gnome-shell-extension-dash-to-dock gnome-shell-extension-unite la-capitaine-icon-theme-git ttf-ms-fonts
 }
 
 install_onedark_terminal_theme() {
