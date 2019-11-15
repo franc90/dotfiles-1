@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=IBus
+Exec=ibus-daemon -drx --panel=/usr/lib/kimpanel-ibus-panel
+Terminal=false
+Type=Application
+StartupNotify=false

@@ -79,7 +79,7 @@ install_bumblebee() {
 }
 
 install_unikey() {
-    sudo pacman --noconfirm --needed -S ibus-unikey
+    sudo pacman --noconfirm --needed -S ibus-unikey kimtoy
 }
 
 install_system_config() {
