@@ -1,28 +1,10 @@
 #!/bin/bash
 
-if [ "$1" = "cli" ]; then
-    cli_config_files=".aliases .hushlogin .tmux.conf .vimrc .zshenv .zshrc"
-
-    for file in $cli_config_files; do
-        ln -s $(pwd)/$file $HOME/$file
-    done
-
-    exit 0
-fi
-
-# Update existing sudo time stamp if the script is still running
-while true; do
-    sleep 60
-    sudo -v
-    kill -0 "$$" || exit
-done 2>/dev/null &
-
 install_list=( $(whiptail --notags --title "Dotfiles" --checklist "Install list" 20 45 11 \
     install_dotfiles "All config files" on \
     install_aur_helper "AUR helper (trizen)" on \
     install_core_packages "Recommended packages" on \
     install_extra_packages "Extra packages" on \
-    install_onedark_terminal_theme "One Dark terminal theme" off \
     install_intel_graphics "Intel graphics driver" on \
     install_bumblebee "Bumblebee for NVIDIA Optimus" on \
     install_unikey "Unikey" on \
@@ -35,7 +17,7 @@ install_dotfiles() {
     REPO="https://github.com/khuedoan98/dotfiles.git"
     GITDIR=$HOME/.dotfiles/
 
-    git clone --branch gnome --bare $REPO $GITDIR
+    git clone --branch kde --bare $REPO $GITDIR
 
     dotfiles() {
         /usr/bin/git --git-dir=$GITDIR --work-tree=$HOME $@
@@ -67,24 +49,20 @@ install_aur_helper() {
 }
 
 install_core_packages() {
-    sudo pacman --noconfirm --needed -S bc eog evince file-roller fzf gdm git gnome-calculator gnome-control-center gnome-keyring gnome-shell gnome-shell-extensions gnome-system-monitor gnome-terminal gnome-tweaks gvim mpv nautilus sushi xcape xdg-user-dirs-gtk
+    sudo pacman --noconfirm --needed -S dolphin fzf git gvim konsole mpv plasma sshfs xcape xdg-user-dirs-gtk
 
     # zsh plugins
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
     git clone https://github.com/zsh-users/zsh-syntax-highlighting ~/.zsh/zsh-syntax-highlighting
 
     # enable gdm at boot
-    systemctl enable gdm
+    systemctl enable sddm
 }
 
 install_extra_packages() {
-    sudo pacman --noconfirm --needed -S arc-gtk-theme aria2 code man noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra tmux translate-shell tree unrar youtube-dl xorg-xprop
+    sudo pacman --noconfirm --needed -S aria2 code man noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra tmux tree unrar youtube-dl
     gpg --recv-keys EB4F9E5A60D32232BB52150C12C87A28FEAC6B20
-    trizen --noconfirm --needed -S --sudo-autorepeat-at-runtime chromium-vaapi-bin gnome-shell-extension-dash-to-dock gnome-shell-extension-unite la-capitaine-icon-theme-git ttf-ms-fonts
-}
-
-install_onedark_terminal_theme() {
-    bash -c "$(curl -fsSL https://raw.githubusercontent.com/denysdovhan/gnome-terminal-one/master/one-dark.sh)"
+    trizen --noconfirm --needed -S --sudo-autorepeat-at-runtime chromium-vaapi-bin la-capitaine-icon-theme-git
 }
 
 install_intel_graphics() {
@@ -102,12 +80,10 @@ install_bumblebee() {
 
 install_unikey() {
     sudo pacman --noconfirm --needed -S ibus-unikey
-    gsettings set org.gnome.desktop.input-sources sources "[('xkb', 'us'), ('ibus', 'Unikey')]"
 }
 
 install_system_config() {
     sudo cp -riv .root/* /
-    for i in {1..9}; do gsettings set "org.gnome.shell.keybindings" "switch-to-application-$i" "[]"; done
 }
 
 install_battery_saver() {
