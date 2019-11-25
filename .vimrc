@@ -65,8 +65,10 @@ nnoremap <C-t> :ls<CR>:buffer<Space>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
 
-" Copy to system clipboard
+" Copy and paste with system clipboard
 vmap <C-c> "+y
+vmap <C-v> c<ESC>"+p
+imap <C-v> <ESC>"+pa
 
 "+---------+
 "| PLUGINS |
