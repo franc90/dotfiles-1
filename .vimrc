@@ -128,7 +128,6 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 " indentLine
 let g:indentLine_char = '│'
 let g:indentLine_color_term = 240
-let g:indentLine_concealcursor = 0
 
 " GitGutter
 let g:gitgutter_sign_added = '▌'
