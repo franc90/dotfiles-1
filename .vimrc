@@ -7,6 +7,7 @@ set backspace=indent,eol,start " Allow backspacing over everything in insert mod
 set cursorline                 " Highlight the current line of the cursor
 set display=truncate           " Show @@@ in the last line if it is truncated
 set expandtab                  " Use spaces when tab is inserted
+set hidden                     " Allow loading a buffer in a window that currently has a modified buffer
 set history=200                " Keep 200 lines of command line history
 set incsearch                  " Highlight match while typing search pattern
 set laststatus=2               " Always show status line
@@ -24,9 +25,9 @@ set splitbelow                 " New window from split is below the current one
 set splitright                 " New window is put right of the current one
 set tabstop=4                  " Number of spaces that Tab in file uses
 set ttimeout                   " Time out for key codes
+set updatetime=100             " Timeout before writing to swap file
 set ttimeoutlen=100            " Wait up to 100ms after Esc for special key
 set wildmenu                   " Display completion matches in a status line
-set hidden                     " Allow loading a buffer in a window that currently has a modified buffer
 filetype plugin indent on      " Enable file type detection
 syntax on                      " Turn on syntax highlighting
 
@@ -88,6 +89,7 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
+Plug 'airblade/vim-gitgutter'
 Plug 'bling/vim-bufferline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
@@ -118,3 +120,13 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 let g:indentLine_char = '│'
 let g:indentLine_color_term = 240
 
+" GitGutter
+let g:gitgutter_sign_added = '▌'
+let g:gitgutter_sign_modified = '▌'
+let g:gitgutter_sign_removed = '▌'
+let g:gitgutter_sign_removed_first_line = '▌'
+let g:gitgutter_sign_modified_removed = '▌'
+highlight GitGutterAdd          ctermfg=Green
+highlight GitGutterChange       ctermfg=Yellow
+highlight GitGutterDelete       ctermfg=Red
+highlight GitGutterChangeDelete ctermfg=Blue
