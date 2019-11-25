@@ -10,7 +10,6 @@ set expandtab                  " Use spaces when tab is inserted
 set hidden                     " Allow loading a buffer in a window that currently has a modified buffer
 set history=200                " Keep 200 lines of command line history
 set incsearch                  " Highlight match while typing search pattern
-set laststatus=2               " Always show status line
 set mouse=a                    " Enable mouse in all modes
 set nocompatible               " Use Vim settings, rather than Vi settings
 set noshowmode                 " Hide mode infomation on the last line
@@ -90,15 +89,24 @@ call plug#begin('~/.vim/plugged')
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
-Plug 'bling/vim-bufferline'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'itchyny/lightline.vim'
 Plug 'jiangmiao/auto-pairs'
 Plug 'justinmk/vim-sneak'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
 Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 call plug#end()
+
+""""""""""""""""""
+" Plugins config "
+""""""""""""""""""
+
+" Airline
+let g:airline_theme = 'onedark'
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " Conquer of Completion
 inoremap <silent><expr> <TAB>
@@ -131,3 +139,4 @@ highlight GitGutterAdd          ctermfg=Green
 highlight GitGutterChange       ctermfg=Yellow
 highlight GitGutterDelete       ctermfg=Red
 highlight GitGutterChangeDelete ctermfg=Blue
+
