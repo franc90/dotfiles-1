@@ -50,6 +50,10 @@ let &t_EI = "\033[2 q" " NORMAL  █
 let &t_SI = "\033[5 q" " INSERT  |
 let &t_SR = "\033[3 q" " REPLACE _
 
+" Split separator
+set fillchars+=vert:\│
+hi VertSplit cterm=none ctermbg=none
+
 "+-------------+
 "| KEY MAPPING |
 "+-------------+
@@ -111,6 +115,6 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 
 " indentLine
-let g:indentLine_char = '▏'
+let g:indentLine_char = '│'
 let g:indentLine_color_term = 240
 
