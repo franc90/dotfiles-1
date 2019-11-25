@@ -28,6 +28,7 @@ install_list=( $(whiptail --notags --title "Dotfiles" --checklist "Install list"
     install_unikey "Unikey" on \
     install_system_config "System config files" on \
     install_battery_saver "Install battery saver for laptop" on \
+    create_ssh_key "Create SSH key for GitHub" on \
     3>&1 1>&2 2>&3 | sed 's/"//g') )
 
 install_dotfiles() {
@@ -77,9 +78,9 @@ install_core_packages() {
 }
 
 install_extra_packages() {
-    sudo pacman --noconfirm --needed -S aria2 code man noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra tmux translate-shell tree unrar youtube-dl
+    sudo pacman --noconfirm --needed -S arc-gtk-theme aria2 code man noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra tmux translate-shell tree unrar youtube-dl xorg-xprop
     gpg --recv-keys EB4F9E5A60D32232BB52150C12C87A28FEAC6B20
-    trizen --noconfirm --needed -S --sudo-autorepeat-at-runtime chromium-vaapi-bin ttf-ms-fonts
+    trizen --noconfirm --needed -S --sudo-autorepeat-at-runtime chromium-vaapi-bin gnome-shell-extension-dash-to-dock gnome-shell-extension-unite la-capitaine-icon-theme-git ttf-ms-fonts
 }
 
 install_onedark_terminal_theme() {
@@ -116,6 +117,13 @@ install_battery_saver() {
     sudo systemctl enable tlp-sleep.service
     sudo intel-undervolt apply
     sudo systemctl enable intel-undervolt.service
+}
+
+create_ssh_key() {
+    email=$(whiptail --inputbox "Enter email for SSH key" 10 20 3>&1 1>&2 2>&3)
+    ssh-keygen -t rsa -b 4096 -C "${email}"
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_rsa
 }
 
 for install_function in "${install_list[@]}"; do
