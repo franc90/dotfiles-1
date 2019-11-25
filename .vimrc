@@ -20,12 +20,13 @@ set ruler                      " Show the cursor position all the time
 set scrolloff=1                " Minimum number of lines above and below cursor
 set shiftwidth=4               " Number of spaces to use for indent step
 set showcmd                    " Display incomplete commands
+set signcolumn=yes             " Always display sign column
 set splitbelow                 " New window from split is below the current one
 set splitright                 " New window is put right of the current one
 set tabstop=4                  " Number of spaces that Tab in file uses
 set ttimeout                   " Time out for key codes
-set updatetime=100             " Timeout before writing to swap file
 set ttimeoutlen=100            " Wait up to 100ms after Esc for special key
+set updatetime=100             " Timeout before writing to swap file
 set wildmenu                   " Display completion matches in a status line
 filetype plugin indent on      " Enable file type detection
 syntax on                      " Turn on syntax highlighting
@@ -99,9 +100,9 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 call plug#end()
 
-""""""""""""""""""
-" Plugins config "
-""""""""""""""""""
+"+----------------+
+"| PLUGINS CONFIG |
+"+----------------+
 
 " Airline
 let g:airline_theme = 'onedark'
