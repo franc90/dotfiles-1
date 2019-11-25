@@ -81,6 +81,7 @@ endif
 " Plugins list
 call plug#begin('~/.vim/plugged')
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'Yggdroot/indentLine'
 Plug 'bling/vim-bufferline'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'itchyny/lightline.vim'
@@ -106,4 +107,8 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+" indentLine
+let g:indentLine_char = '▏'
+let g:indentLine_color_term = 240
 
