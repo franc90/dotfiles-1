@@ -65,10 +65,11 @@ map Q gq
 " Save as root
 cmap W w !sudo /usr/bin/tee > /dev/null %
 
-" Quick buffer switching
+" Buffer
 nnoremap <C-t> :ls<CR>:buffer<Space>
 nnoremap <Tab> :bnext<CR>
 nnoremap <S-Tab> :bprevious<CR>
+nnoremap <Leader>d :bp<cr>:bd #<cr>
 
 " Copy and paste with system clipboard
 vmap <C-c> "+y
