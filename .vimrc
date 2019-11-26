@@ -61,8 +61,10 @@ hi VertSplit cterm=none ctermbg=none
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
-" Save as root
+" Save and quit
 cmap W w !sudo /usr/bin/tee > /dev/null %
+nnoremap <C-S> :w<CR>
+nnoremap <C-Q> :q<CR>
 
 " Buffer
 nnoremap <C-t> :ls<CR>:buffer<SPACE>
