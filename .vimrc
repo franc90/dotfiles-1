@@ -66,10 +66,10 @@ map Q gq
 cmap W w !sudo /usr/bin/tee > /dev/null %
 
 " Buffer
-nnoremap <C-t> :ls<CR>:buffer<Space>
-nnoremap <Tab> :bnext<CR>
-nnoremap <S-Tab> :bprevious<CR>
-nnoremap <Leader>d :bp<cr>:bd #<cr>
+nnoremap <C-t> :ls<CR>:buffer<SPACE>
+nnoremap <TAB> :bnext<CR>
+nnoremap <S-TAB> :bprevious<CR>
+nnoremap <LEADER>d :bp<CR>:bd #<CR>
 
 " Copy and paste with system clipboard
 vmap <C-c> "+y
