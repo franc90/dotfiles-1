@@ -26,7 +26,6 @@ set splitright                 " New window is put right of the current one
 set tabstop=4                  " Number of spaces that Tab in file uses
 set ttimeout                   " Time out for key codes
 set ttimeoutlen=100            " Wait up to 100ms after Esc for special key
-set updatetime=100             " Timeout before writing to swap file
 set wildmenu                   " Display completion matches in a status line
 filetype plugin indent on      " Enable file type detection
 syntax on                      " Turn on syntax highlighting
@@ -133,6 +132,7 @@ let g:indentLine_char = '│'
 let g:indentLine_color_term = 240
 
 " GitGutter
+autocmd BufWritePost * GitGutter
 let g:gitgutter_sign_added = '▌'
 let g:gitgutter_sign_modified = '▌'
 let g:gitgutter_sign_removed = '▌'
