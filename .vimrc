@@ -67,7 +67,7 @@ nnoremap <C-S> :w<CR>
 nnoremap <C-Q> :q<CR>
 
 " Buffer
-nnoremap <C-t> :ls<CR>:buffer<SPACE>
+nnoremap <C-t> :Files<CR>
 nnoremap <TAB> :bnext<CR>
 nnoremap <S-TAB> :bprevious<CR>
 nnoremap <LEADER>d :bp<CR>:bd #<CR>
@@ -94,6 +94,8 @@ Plug 'Yggdroot/indentLine'
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
+Plug '~/.fzf'
+Plug 'junegunn/fzf.vim'
 Plug 'justinmk/vim-sneak'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'ryanoasis/vim-devicons'
