@@ -1,3 +1,6 @@
+# Disable software flow control
+stty -ixon
+
 # Prompt theme
 setopt prompt_subst
 autoload -U colors && colors
