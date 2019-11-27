@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Key Remap
-Exec=sh -c 'setxkbmap -option ctrl:nocaps && xmodmap -e "keycode 48 = ISO_Level3_Shift" && xmodmap -e "keycode any = apostrophe quotedbl" && xcape -e "Control_L=Escape;ISO_Level3_Shift=apostrophe"'
+Exec=sh -c "setxkbmap -option ctrl:nocaps,shift:both_capslock,lv3:ralt_switch && xcape"
 Terminal=false
 Type=Application
 StartupNotify=false
