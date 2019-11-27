@@ -67,7 +67,7 @@ install_aur_helper() {
 }
 
 install_core_packages() {
-    sudo pacman --noconfirm --needed -S bc eog evince file-roller fzf gdm git gnome-calculator gnome-control-center gnome-keyring gnome-shell gnome-shell-extensions gnome-system-monitor gnome-terminal gnome-tweaks gvim mpv nautilus sushi xcape xdg-user-dirs-gtk
+    sudo pacman --noconfirm --needed -S eog evince file-roller fzf gdm git gnome-calculator gnome-control-center gnome-keyring gnome-shell gnome-shell-extensions gnome-system-monitor gnome-terminal gnome-tweaks gvim mpv nautilus npm sushi xcape xdg-user-dirs-gtk
 
     # zsh plugins
     git clone https://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggestions
@@ -78,9 +78,9 @@ install_core_packages() {
 }
 
 install_extra_packages() {
-    sudo pacman --noconfirm --needed -S arc-gtk-theme aria2 code man noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra tmux translate-shell tree unrar youtube-dl xorg-xprop
+    sudo pacman --noconfirm --needed -S arc-gtk-theme aria2 code man noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra tmux tree unrar youtube-dl xorg-xprop
     gpg --recv-keys EB4F9E5A60D32232BB52150C12C87A28FEAC6B20
-    trizen --noconfirm --needed -S --sudo-autorepeat-at-runtime chromium-vaapi-bin gnome-shell-extension-dash-to-dock gnome-shell-extension-unite la-capitaine-icon-theme-git ttf-ms-fonts
+    trizen --noconfirm --needed -S --sudo-autorepeat-at-runtime chromium-vaapi-bin gnome-shell-extension-dash-to-dock gnome-shell-extension-unite la-capitaine-icon-theme-git nerd-fonts-source-code-pro ttf-ms-fonts
 }
 
 install_onedark_terminal_theme() {
