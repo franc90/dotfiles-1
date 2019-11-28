@@ -147,3 +147,5 @@ highlight GitGutterChange       ctermfg=Yellow
 highlight GitGutterDelete       ctermfg=Red
 highlight GitGutterChangeDelete ctermfg=Blue
 
+" Sneak
+let g:sneak#label = 1
