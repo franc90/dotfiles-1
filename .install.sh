@@ -97,7 +97,7 @@ install_bumblebee() {
     sudo gpasswd -a $USER video
     sudo systemctl enable bumblebeed.service
     sudo sed -i -e "s/#RUNTIME_PM_BLACKLIST=.*/RUNTIME_PM_BLACKLIST=\"$(lspci | grep NVIDIA | cut -b -7)\"/g" /etc/default/tlp
-    # Run NVIDIA settings with optirun -b none /usr/bin/nvidia-settings -c :8
+    sudo sed -i -e "s/\/usr\/bin\/nvidia-settings$/optirun -b none \/usr\/bin\/nvidia-settings -c :8/g" /usr/share/applications/nvidia-settings.desktop
 }
 
 install_unikey() {
