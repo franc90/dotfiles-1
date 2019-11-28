@@ -17,7 +17,7 @@ while true; do
     kill -0 "$$" || exit
 done 2>/dev/null &
 
-install_list=( $(whiptail --notags --title "Dotfiles" --checklist "Install list" 20 45 11 \
+install_list=( $(whiptail --notags --title "Dotfiles" --checklist "Install list" 20 45 12 \
     install_dotfiles "All config files" on \
     install_aur_helper "AUR helper (trizen)" on \
     install_core_packages "Recommended packages" on \
@@ -29,6 +29,7 @@ install_list=( $(whiptail --notags --title "Dotfiles" --checklist "Install list"
     install_system_config "System config files" on \
     install_battery_saver "Install battery saver for laptop" on \
     create_ssh_key "Create SSH key for GitHub" on \
+    install_dev_tools "Install development tools" on \
     3>&1 1>&2 2>&3 | sed 's/"//g') )
 
 install_dotfiles() {
@@ -131,6 +132,17 @@ activate_theme() {
     gsettings set org.gnome.shell.extensions.user-theme name 'Arc'
     kvantummanager --set KvArc
     gsettings set org.gnome.desktop.interface icon-theme 'la-capitaine-icon-theme'
+}
+
+install_dev_tools() {
+    # VirtualBox
+    sudo pacman --noconfirm --needed -S virtualbox virtualbox-host-modules-arch
+    trizen --noconfirm --needed -S --sudo-autorepeat-at-runtime virtualbox-ext-oracle
+    # Docker
+    sudo pacman --noconfirm --needed -S docker-compose
+    sudo usermod -aG docker $USER
+    # Python
+    sudo pacman --noconfirm --needed -S python-pipenv
 }
 
 for install_function in "${install_list[@]}"; do
