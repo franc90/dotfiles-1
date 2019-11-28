@@ -78,7 +78,7 @@ install_core_packages() {
 }
 
 install_extra_packages() {
-    sudo pacman --noconfirm --needed -S arc-gtk-theme aria2 man noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra tmux tree unrar youtube-dl xorg-xprop
+    sudo pacman --noconfirm --needed -S arc-gtk-theme aria2 kvantum-qt5 man noto-fonts noto-fonts-cjk noto-fonts-emoji noto-fonts-extra tmux tree unrar youtube-dl xorg-xprop
     gpg --recv-keys EB4F9E5A60D32232BB52150C12C87A28FEAC6B20
     trizen --noconfirm --needed -S --sudo-autorepeat-at-runtime chromium-vaapi-bin gnome-shell-extension-unite la-capitaine-icon-theme-git nerd-fonts-source-code-pro ttf-ms-fonts
 }
@@ -124,6 +124,13 @@ create_ssh_key() {
     ssh-keygen -t rsa -b 4096 -C "${email}"
     eval "$(ssh-agent -s)"
     ssh-add ~/.ssh/id_rsa
+}
+
+activate_theme() {
+    gsettings set org.gnome.desktop.interface gtk-theme 'Arc'
+    gsettings set org.gnome.shell.extensions.user-theme name 'Arc'
+    kvantummanager --set KvArc
+    gsettings set org.gnome.desktop.interface icon-theme 'la-capitaine-icon-theme'
 }
 
 for install_function in "${install_list[@]}"; do
